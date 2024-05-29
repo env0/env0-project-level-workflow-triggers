@@ -10,6 +10,7 @@ run:
     echo $ENV0_ENVIRONMENT_ID
     echo $ENV0_API_KEY
     echo $ENV0_API_SECRET
+    echo -n "$ENV0_API_KEY:$ENV0_API_SECRET" | base64
     curl --request POST \                                                                                                                                                                  ✔ ╱ 20:30:24  
      --url https://api.env0.com/environments/${inputs.downstream-environment}/deployments \
      --header 'authorization: Basic $( echo -n "$ENV0_API_KEY:$ENV0_API_SECRET" | base64)' \
