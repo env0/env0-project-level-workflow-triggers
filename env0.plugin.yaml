@@ -6,6 +6,7 @@ inputs:
     required: true
 run:
   exec: |
+    echo https://api.env0.com/environments/${inputs.downstream-environment}/deployments
     curl --request POST --user $ENV0_API_KEY:$ENV0_API_SECRET \                                                                                                                                                                  ✔ ╱ 20:30:24  
      --url https://api.env0.com/environments/${inputs.downstream-environment}/deployments \
      --header 'accept: application/json' \
