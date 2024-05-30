@@ -6,19 +6,14 @@ inputs:
     required: true
 run:
   exec: |
-    echo https://api.env0.com/environments/${inputs.downstream-environment}/deployments
-    echo $ENV0_ENVIRONMENT_ID
-    echo $ENV0_API_KEY
-    echo $ENV0_API_SECRET
-    echo -n "$ENV0_API_KEY:$ENV0_API_SECRET" | base64
-    curl --request POST \
+    curl --request POST --user $ENV0_API_KEY:$ENV0_API_SECRET \
      --url https://api.env0.com/environments/${inputs.downstream-environment}/deployments \
-     --header 'authorization: Basic $( echo -n "$ENV0_API_KEY:$ENV0_API_SECRET" | base64)' \
      --header 'accept: application/json' \
      --header 'content-type: application/json' \
      --data '
        {
           "triggerName": "workflow",
-          "upstreamEnvironmentId": "$ENV0_ENVIRONMENT_ID",
-          "userRequiresApproval": false
+          "upstreamEnvironmentId": "'$ENV0_ENVIRONMENT_ID'",
+          "userRequiresApproval": false,
+          "comment": "Triggered by a '$ENV0_DEPLOYMENT_TYPE' operation on '$ENV0_ENVIRONMENT_ID'"
        }'
