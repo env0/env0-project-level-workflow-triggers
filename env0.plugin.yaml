@@ -13,7 +13,7 @@ run:
      --data '
        {
           "triggerName": "workflow",
-          "upstreamEnvironmentId": "\$ENV0_ENVIRONMENT_ID",
+          "upstreamEnvironmentId": "'$ENV0_ENVIRONMENT_ID'",
           "userRequiresApproval": false,
-          "comment": "Trigged by a \$ENV0_DEPLOYMENT_TYPE opertion on \$ENV0_ENVIRONMENT_ID"
+          "comment": "Trigged by a '$ENV0_DEPLOYMENT_TYPE' opertion on '$ENV0_ENVIRONMENT_ID'"
        }'
