@@ -14,5 +14,6 @@ run:
        {
           "triggerName": "workflow",
           "upstreamEnvironmentId": "$ENV0_ENVIRONMENT_ID",
-          "userRequiresApproval": false
+          "userRequiresApproval": false,
+          "comment": "Trigged by a $ENV0_DEPLOYMENT_TYPE action on $ENV0_ENVIRONMENT_ID"
        }'
