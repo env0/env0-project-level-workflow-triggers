@@ -1,12 +1,18 @@
-name: Project Level Workflow Triggers
+name: Workflow Triggers Plugin
 icon: https://avatars.githubusercontent.com/u/46656519?s=200&v=4
 inputs:
   downstream-environment:
     description: The downstream environment that will to be triggered
     required: true
+  env0-api-key:
+    description: The API key for the env0 organization
+    required: true
+  env0-api-secret:
+    description: The API secret for the env0 organization
+    required: true
 run:
   exec: |
-    curl --request POST --user $ENV0_API_KEY:$ENV0_API_SECRET \
+    curl --request POST --user ${inputs.env0-api-key}:${inputs.env0-api-secret} \
      --url https://api.env0.com/environments/${inputs.downstream-environment}/deployments \
      --header 'accept: application/json' \
      --header 'content-type: application/json' \
