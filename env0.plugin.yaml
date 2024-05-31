@@ -5,10 +5,10 @@ inputs:
     description: The downstream environment that will to be triggered
     required: true
   env0-api-key:
-    description: The downstream environment that will to be triggered
+    description: The API key for the env0 organization
     required: true
   env0-api-secret:
-    description: The downstream environment that will to be triggered
+    description: The API secret for the env0 organization
     required: true
 run:
   exec: |
